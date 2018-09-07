@@ -3,4 +3,4 @@
 
 Base systems are currently being implemented, once the backend has enough substance, this readme will be updated with the future plans, direction, and overall theme/vibe of the game
 
-![Current Screenshot](https://imgur.com/D93TSRt)
+![Current Screenshot](https://i.imgur.com/D93TSRt.png)

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Objects
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Cliffs
+    uniqueID: 3652246121
+    locked: 0
+  - name: Low Obj
+    uniqueID: 3124519759
+    locked: 0
+  - name: Buildings
+    uniqueID: 305535547
+    locked: 0
+  - name: Objects
+    uniqueID: 96266713
+    locked: 0
+  - name: Objects 2
+    uniqueID: 3760869373
+    locked: 0
+  - name: Windows
+    uniqueID: 1333652579
+    locked: 0
+  - name: Trees
+    uniqueID: 2906342589
+    locked: 0
+  - name: Player
+    uniqueID: 3662839549
+    locked: 0

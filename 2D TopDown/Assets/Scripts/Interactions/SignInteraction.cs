@@ -7,12 +7,13 @@ public class SignInteraction : MonoBehaviour {
     [SerializeField] private GameObject panel;
     [SerializeField] private Text signText;
     [SerializeField] private Text interactText;
-    private Collider2D sign;
-    private bool inRange;
+    [TextArea] public string signMessage;
+    private bool inRange;       // Player in range of sign
+
 
 	void Start () {
-        sign = GetComponent<Collider2D>();
         inRange = false;
+        signText.text = signMessage;
     }
 
 
@@ -22,6 +23,8 @@ public class SignInteraction : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D col) {
         if (col.tag == "Player") {
             inRange = true;
+            // TODO: Make wait 1 sec before setting active
+            //       So it pops same time as pressing E works (OnTriggerStay2D is called)
             signUI.SetActive(true);
             Debug.Log("Player within range");
             interactText.text = "Press E to interact"; 
@@ -40,7 +43,6 @@ public class SignInteraction : MonoBehaviour {
             }
         }
     }
-
 
 
     /// <summary>

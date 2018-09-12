@@ -14,8 +14,6 @@ public class CameraController : MonoBehaviour {
     [SerializeField]
     private Vector3 offset;     // Offset between camera center and player
     public float interpVelocity;
-    public float minDistance;
-    public float followDistance;
     
 
 	void Start () {

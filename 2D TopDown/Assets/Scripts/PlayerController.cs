@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     private void Awake () {
         speed = defaultSpeed;
         moveDirection = Vector2.zero;
+        DontDestroyOnLoad(this.gameObject);
 	}
 	
 	// Update is called once per frame

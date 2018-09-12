@@ -11,9 +11,14 @@ using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 public class PortalController : MonoBehaviour {
 
-    public string nextScene;    // Name of next scene to change to
-    private Collider2D portal;
     private const float LOAD_READY_PERCENTAGE = 0.9f;   // Actual percentage when scene is fully loaded
+
+    [Header("Portal Settings")]
+    public string nextScene;        // Name of next scene to change to
+    public Vector3 spawnOffset;     // Offset for player to spawn leaving portal
+    private Collider2D portal;
+
+    private GameObject player;
 
     AsyncOperation sceneLoad;
     [SerializeField] GameObject loadingUI;
@@ -23,6 +28,7 @@ public class PortalController : MonoBehaviour {
 	
 	void Start () {
         portal = GetComponent<Collider2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 
@@ -31,9 +37,15 @@ public class PortalController : MonoBehaviour {
     /// </summary>
     /// <param name="sceneName">Name of scene to load</param>
     public void ChangeScene(string sceneName) {
-        loadingUI.SetActive(true);
-        loadingText.text = "L O A D I N G . . .";
-        StartCoroutine(LoadingSceneRealProgress(sceneName));
+        try {
+            loadingUI.SetActive(true);
+            loadingText.text = "L O A D I N G . . .";
+            StartCoroutine(LoadingSceneRealProgress(sceneName));
+        }
+        catch (UnityException e){
+            Debug.LogException(e);
+        }
+        
     }
 
 
@@ -55,14 +67,24 @@ public class PortalController : MonoBehaviour {
                 loadingText.text = "PRESS SPACE TO CONTINUE";
 
                 // User input to continue
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space)) {
                     sceneLoad.allowSceneActivation = true;
+                    SetPlayerPosition(spawnOffset);
+                }
             }
             Debug.Log(sceneLoad.progress);
             yield return null;
         }
     }
 
+
+    /// <summary>
+    /// Sets the player's position to a set offset of the portal collider
+    /// </summary>
+    /// <param name="offset">Offset to spawn player from portal</param>
+    private void SetPlayerPosition(Vector3 offset) {
+        player.transform.SetPositionAndRotation(portal.transform.position + offset, player.transform.rotation);
+    }
 
     /// <summary>
     /// Portal entered by player

@@ -1,3 +1,2 @@
-- Player is not saved between scene changes ( DontDestroyOnLoad() )
-- Player is set back to origin when leaving cafe, set position to just below the portal
-- No Checks to see if portal exists
+- Sign interaction not properly implemented
+- When reentering the main world from a portal, spawn isn't quite right

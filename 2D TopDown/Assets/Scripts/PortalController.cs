@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 /// <summary>
 /// Main Class for Portals: Doors, entranceways, etc.
@@ -21,9 +22,9 @@ public class PortalController : MonoBehaviour {
     private GameObject player;
 
     AsyncOperation sceneLoad;
-    [SerializeField] GameObject loadingUI;
-    [SerializeField] Slider loadingBar;
-    [SerializeField] Text loadingText;
+    [SerializeField] private GameObject loadingUI;
+    [SerializeField] private Slider loadingBar;
+    [SerializeField] private Text loadingText;
 
 	
 	void Start () {
@@ -37,15 +38,9 @@ public class PortalController : MonoBehaviour {
     /// </summary>
     /// <param name="sceneName">Name of scene to load</param>
     public void ChangeScene(string sceneName) {
-        try {
             loadingUI.SetActive(true);
             loadingText.text = "L O A D I N G . . .";
             StartCoroutine(LoadingSceneRealProgress(sceneName));
-        }
-        catch (UnityException e){
-            Debug.LogException(e);
-        }
-        
     }
 
 
@@ -84,6 +79,7 @@ public class PortalController : MonoBehaviour {
     /// <param name="offset">Offset to spawn player from portal</param>
     private void SetPlayerPosition(Vector3 offset) {
         player.transform.SetPositionAndRotation(portal.transform.position + offset, player.transform.rotation);
+        Debug.Log("Portal Pos: " + portal.transform.position + "\nPlayer Pos: " +  player.transform.position);
     }
 
     /// <summary>

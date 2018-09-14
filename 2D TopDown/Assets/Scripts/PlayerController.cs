@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 
 public class PlayerController : MonoBehaviour {
+
+    public static PlayerController instance;
+
     [Header("Player Attributes")]
     public float defaultSpeed;
     [SerializeField]
@@ -23,7 +26,14 @@ public class PlayerController : MonoBehaviour {
     private void Awake () {
         speed = defaultSpeed;
         moveDirection = Vector2.zero;
-        DontDestroyOnLoad(this.gameObject);
+        
+        if (instance == null) {
+            instance = this;    // Set this instance as the instance reference
+        }
+        else if (instance != this) {
+            Destroy(gameObject);    // Instance already set, destroy this
+        }
+        DontDestroyOnLoad(gameObject);  // Retain gameObject through scenes
 	}
 	
 	// Update is called once per frame

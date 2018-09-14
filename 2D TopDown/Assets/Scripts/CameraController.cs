@@ -16,8 +16,9 @@ public class CameraController : MonoBehaviour {
     public float interpVelocity;
     
 
-	void Start () {
+	void Awake () {
         targetPos = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	

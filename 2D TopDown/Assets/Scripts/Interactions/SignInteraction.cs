@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// 
+/// </summary>
 public class SignInteraction : MonoBehaviour {
 
     [SerializeField] private GameObject signUI;
@@ -11,7 +15,7 @@ public class SignInteraction : MonoBehaviour {
     private bool inRange;       // Player in range of sign
 
 
-	void Start () {
+	private void Start () {
         inRange = false;
         signText.text = signMessage;
     }

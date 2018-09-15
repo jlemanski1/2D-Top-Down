@@ -27,7 +27,7 @@ public class PortalController : MonoBehaviour {
     [SerializeField] private Text loadingText;
 
 	
-	void Start () {
+	private void Start () {
         portal = GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
 	}

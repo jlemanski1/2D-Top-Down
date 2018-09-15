@@ -16,13 +16,13 @@ public class CameraController : MonoBehaviour {
     public float interpVelocity;
     
 
-	void Awake () {
+	private void Awake () {
         targetPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	
-	void FixedUpdate () {
+	private void FixedUpdate () {
         if (player) {
             Vector3 posNoZ = transform.position;
             posNoZ.z = player.transform.position.z;

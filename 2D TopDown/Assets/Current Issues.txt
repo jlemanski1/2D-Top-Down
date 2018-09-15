@@ -1,1 +1,9 @@
+ISSUES:
 NONE
+
+TODO:
+- Use github for planning and issue tracking
+- Cinemachine for Camera
+
+- Make EnemyController that inherits from NPCController
+- Make NPCController handle animations 
